@@ -26,7 +26,7 @@ Peru contains a significant share of the Amazon forest, and **Ucayali** is among
 - Period analysed: **2001–2021**
 - Spatial framework: LandTrendr outputs aggregated per pixel for the strongest negative segment (“Loss Big-Delta”) within the analysis window.
 
-![Study area](assets/figures/Figura1_a.png)`
+![Study area](assets/img/Figura1_a.png)
 
 ---
 
@@ -34,6 +34,8 @@ Peru contains a significant share of the Amazon forest, and **Ucayali** is among
 
 ### 1) Spectral change metrics (LandTrendr)
 LandTrendr fits a piecewise linear model to Landsat time-series, capturing abrupt disturbances and gradual trends while reducing noise (e.g., cloud contamination, sensor artefacts).
+
+![Study area](assets/img/Figura3_ModConceptual_LandTrend.png)
 
 For each pixel, the project uses the **largest negative segment** (“Loss Big-Delta”) between 2001 and 2021 and exports results as GeoTIFF (multi-band).
 
