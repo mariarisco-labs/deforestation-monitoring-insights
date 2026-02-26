@@ -14,7 +14,7 @@ It focuses on:
 
 Deforestation is a major driver of biodiversity loss and greenhouse-gas emissions. 
 
-![image](https://github.com/user-attachments/assets/318088e9-d345-449c-9b17-3b6d20103cee)
+<img src="https://github.com/user-attachments/assets/318088e9-d345-449c-9b17-3b6d20103cee" width="450">
 
 Peru contains a significant share of the Amazon forest, and **Ucayali** is among the regions most affected by forest loss. In this case study, the analysis covers **2001–2021** and supports the broader goal of building monitoring pipelines for conservation, MRV, and early-warning systems.
 
@@ -26,7 +26,7 @@ Peru contains a significant share of the Amazon forest, and **Ucayali** is among
 - Period analysed: **2001–2021**
 - Spatial framework: LandTrendr outputs aggregated per pixel for the strongest negative segment (“Loss Big-Delta”) within the analysis window.
 
-![Study area](assets/img/Figura1_a.png)
+<img src="assets/img/Figura1_a.png" alt="Study area" width="450">
 
 ---
 
@@ -35,7 +35,7 @@ Peru contains a significant share of the Amazon forest, and **Ucayali** is among
 ### 1) Spectral change metrics (LandTrendr)
 LandTrendr fits a piecewise linear model to Landsat time-series, capturing abrupt disturbances and gradual trends while reducing noise (e.g., cloud contamination, sensor artefacts).
 
-![Study area](assets/img/Figura3_ModConceptual_LandTrend.png)
+<img src="assets/img/Figura3_ModConceptual_LandTrend.png" alt="Conceptual Model" width="450">
 
 For each pixel, the project uses the **largest negative segment** (“Loss Big-Delta”) between 2001 and 2021 and exports results as GeoTIFF (multi-band).
 
@@ -73,9 +73,7 @@ A boolean reference mask is derived from **Hansen Global Forest Change (GFC v1.1
 **What we see:** The annual pattern of deforestation is not uniform; loss clusters in specific years, suggesting episodic disturbances (e.g., expansion fronts, infrastructure effects, commodity cycles, enforcement shifts).
 
 — *Deforested area by year of disturbance (YOD)*
-![Annual pattern](outputs/figures/areas_deforestadas_yod.png)
-
-
+<img src="outputs/figures/areas_deforestadas_yod.png" alt="Annual pattern" width="450">
 
 **Why it matters:** Peak years are actionable for monitoring (early warning), attribution work, and prioritising field verification.
 
@@ -84,11 +82,11 @@ A boolean reference mask is derived from **Hansen Global Forest Change (GFC v1.1
 ### 2) Deforested pixels show stronger change signals (magnitude / rate / DSNR), but overlap remains
 **What we see:** Compared with non-deforested pixels, deforested pixels tend to have higher **magnitude** and **rate** of change, and higher **DSNR** (signal-to-noise proxy). However, the class distributions overlap—so a simple threshold is unlikely to separate classes reliably.
 
-— *Class comparison (deforested vs non-deforested)*
-![ClassComparison](outputs/figures/areas_deforestadas_vs_no_deforestadas.png) 
+— *Class comparison (ndeforested vs non-deforested)*
+<img src="outputs/figures/areas_deforestadas_vs_no_deforestadas.png" alt="ClassComparison" width="450">
 
 — *Magnitude vs DSNR (separability + overlap)*
-![Scatterplot](outputs/figures/scatterplot_mag_dsnr.png) 
+<img src="outputs/figures/scatterplot_mag_dsnr.png" alt="Scatterplotn" width="450">
 
 **Why it matters:** These features are informative, but you’ll need robust modelling (or additional predictors) rather than single-rule classification.
 
@@ -98,13 +96,13 @@ A boolean reference mask is derived from **Hansen Global Forest Change (GFC v1.1
 **What we see:** Feature distributions show wide dispersion and outliers in both classes. This can reflect mixed pixels (fragmentation), heterogeneous land cover, residual noise, or reference label uncertainty.
 
 — *Distribution of key variables*
-![Distribution](outputs/figures/variables_distribucion.png) 
+<img src="outputs/figures/variables_distribucion.png" alt="Distribution" width="450">
 
 — *Boxplots highlighting spread and outliers*
-![Boxplots](outputs/figures/areas_deforestadas_boxplot.png) 
+<img src="outputs/figures/areas_deforestadas_boxplot.png" alt="Boxplots" width="450">
 
 — *Duration-related behaviour*
-![Duration](outputs/figures/areas_deforestadas_dur.png) 
+<img src="outputs/figures/areas_deforestadas_dur.png" alt="Duration" width="450">
 
 **Why it matters:** Outliers and heavy tails can dominate model learning and reduce generalisation—transformations and robust statistics become important.
 
@@ -114,10 +112,10 @@ A boolean reference mask is derived from **Hansen Global Forest Change (GFC v1.1
 **What we see:** Several LandTrendr-derived metrics are correlated (e.g., magnitude, rate, prevalence-related measures). This affects interpretability and can inflate variance in some models.
 
  — *Correlation matrix*
-![Correlation](outputs/figures/matriz_correlacion.png)
+ <img src="outputs/figures/matriz_correlacion.png" alt="Correlation" width="450">
 
 — *Example bivariate relationship*
-![Scatterplot](outputs/figures/scatterplot_mag_preval.png)
+ <img src="outputs/figures/scatterplot_mag_preval.png" alt="Scatterplot" width="450">
 
 **Why it matters:** Feature selection, regularisation, or dimensionality reduction can improve stability and interpretability.
 
@@ -131,7 +129,7 @@ A boolean reference mask is derived from **Hansen Global Forest Change (GFC v1.1
 - validating the reference mask quality and boundary effects
 
 — *shows dispersion/overlap*
-![Dispersion](outputs/figures/variables_distribucion.png)
+ <img src="outputs/figures/variables_distribucion.png" alt="Dispersion" width="450">
 
 — *shows incomplete separability*
 ![Dispersion](outputs/figures/areas_deforestadas_vs_no_deforestadas.png)
