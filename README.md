@@ -130,9 +130,11 @@ A boolean reference mask is derived from **Hansen Global Forest Change (GFC v1.1
 - combining multiple indices / contextual layers
 - validating the reference mask quality and boundary effects
 
-**Include these figures (as “evidence of need”):**
-- `outputs/figures/variables_distribucion.png` — *shows dispersion/overlap*
-- `outputs/figures/areas_deforestadas_vs_no_deforestadas.png` — *shows incomplete separability*
+— *shows dispersion/overlap*
+![Dispersion](outputs/figures/variables_distribucion.png)
+
+— *shows incomplete separability*
+![Dispersion](outputs/figures/areas_deforestadas_vs_no_deforestadas.png)
 
 **Why it matters:** This frames your work as monitoring-driven and iteration-ready (a strong consulting / PM narrative).
 
