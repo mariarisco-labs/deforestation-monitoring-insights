@@ -69,21 +69,62 @@ A boolean reference mask is derived from **Hansen Global Forest Change (GFC v1.1
 
 ## Key findings (summary)
 
-- A large fraction of the study area is classified as deforested over 2001–2021, with a clear temporal pattern and peak years of loss.
-- **magnitude**, **rate**, and **DSNR** tend to be higher in deforested pixels, while **preval** shows strong overlap between classes.
-- Distributions show **high dispersion** and **outliers**, suggesting:
-  - mixed land-cover mosaics and forest fragmentation
-  - potential reference-mask errors (omission/commission) or noise-driven artefacts
-- Statistical tests confirm **significant differences** for key variables, but overlap implies classification remains non-trivial without additional features or robust handling of outliers and transformations.
+### 1) Deforestation is concentrated in time and shows peak “loss years” (2001–2021)
+**What we see:** The annual pattern of deforestation is not uniform; loss clusters in specific years, suggesting episodic disturbances (e.g., expansion fronts, infrastructure effects, commodity cycles, enforcement shifts).
 
-> Add 2–4 key figures here from `outputs/figures/` (examples below):
-> - `areas_deforestadas_yod.png` (annual loss pattern)
-> - `variables_distribucion.png` (feature distributions)
-> - `matriz_correlacion.png` (correlation)
-> - `areas_deforestadas_vs_no_deforestadas.png` (class comparison)
->
-> Example usage:
-> `![Annual pattern](outputs/figures/<figure_name>.png)`
+![Annual pattern](outputs/figures/areas_deforestadas_yod.png)
+
+— *Deforested area by year of disturbance (YOD)*
+
+**Why it matters:** Peak years are actionable for monitoring (early warning), attribution work, and prioritising field verification.
+
+---
+
+### 2) Deforested pixels show stronger change signals (magnitude / rate / DSNR), but overlap remains
+**What we see:** Compared with non-deforested pixels, deforested pixels tend to have higher **magnitude** and **rate** of change, and higher **DSNR** (signal-to-noise proxy). However, the class distributions overlap—so a simple threshold is unlikely to separate classes reliably.
+
+![ClassComparison](outputs/figures/areas_deforestadas_vs_no_deforestadas.png) — *Class comparison (deforested vs non-deforested)*
+![Scatterplot](outputs/figures/scatterplot_mag_dsnr.pn) — *Magnitude vs DSNR (separability + overlap)*
+
+**Why it matters:** These features are informative, but you’ll need robust modelling (or additional predictors) rather than single-rule classification.
+
+---
+
+### 3) Dispersion and outliers are a key challenge for classification and model stability
+**What we see:** Feature distributions show wide dispersion and outliers in both classes. This can reflect mixed pixels (fragmentation), heterogeneous land cover, residual noise, or reference label uncertainty.
+
+**Include these figures:**
+![Distribution](outputs/figures/variables_distribucion.png) — *Distribution of key variables*
+![Boxplots](outputs/figures/areas_deforestadas_boxplot.png) — *Boxplots highlighting spread and outliers*
+![Duration](outputs/figures/areas_deforestadas_dur.png) — *Duration-related behaviour*
+
+**Why it matters:** Outliers and heavy tails can dominate model learning and reduce generalisation—transformations and robust statistics become important.
+
+---
+
+### 4) Some predictors are correlated — multicollinearity needs to be managed
+**What we see:** Several LandTrendr-derived metrics are correlated (e.g., magnitude, rate, prevalence-related measures). This affects interpretability and can inflate variance in some models.
+
+**Include these figures:**
+- `outputs/figures/matriz_correlacion.png` — *Correlation matrix*
+- (Optional) `outputs/figures/scatterplot_mag_preval.png` — *Example bivariate relationship*
+
+**Why it matters:** Feature selection, regularisation, or dimensionality reduction can improve stability and interpretability.
+
+---
+
+### 5) Practical implication: improvements should focus on transformations + feature engineering + additional context
+**What we see:** Given overlap and dispersion, improvements are less about “more modelling” and more about making the signal cleaner and more separable:
+- transformations (e.g., log transforms where appropriate)
+- robust outlier handling
+- combining multiple indices / contextual layers
+- validating the reference mask quality and boundary effects
+
+**Include these figures (as “evidence of need”):**
+- `outputs/figures/variables_distribucion.png` — *shows dispersion/overlap*
+- `outputs/figures/areas_deforestadas_vs_no_deforestadas.png` — *shows incomplete separability*
+
+**Why it matters:** This frames your work as monitoring-driven and iteration-ready (a strong consulting / PM narrative).
 
 ---
 
