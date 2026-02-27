@@ -58,7 +58,7 @@ A boolean reference mask is derived from **Hansen Global Forest Change (GFC v1.1
 
 1. **Load LandTrendr raster outputs** (Loss Big-Delta) and the **reference mask**
 2. **Build a per-pixel dataframe** from raster bands (predictors + label)
-3. **EDA (univariate + bivariate)**:
+3. **EDA (univariate + bivariate + multivariate)**:
    - distribution analysis (variance, outliers)
    - correlation checks / multicollinearity awareness
    - class comparisons (deforested vs non-deforested)
@@ -75,18 +75,26 @@ A boolean reference mask is derived from **Hansen Global Forest Change (GFC v1.1
 — *Deforested area by year of disturbance (YOD)*
 <img src="outputs/figures/areas_deforestadas_yod.png" alt="Annual pattern" width="450">
 
-**Why it matters:** Peak years are actionable for monitoring (early warning), attribution work, and prioritising field verification.
+Results of temporal cluster analysis are actionable for monitoring (early warning), attribution work, and prioritising field verification.
 
 ---
 
 ### 2) Deforested pixels show stronger change signals (magnitude / rate / DSNR), but overlap remains
-**What we see:** Compared with non-deforested pixels, deforested pixels tend to have higher **magnitude** and **rate** of change, and higher **DSNR** (signal-to-noise proxy). However, the class distributions overlap—so a simple threshold is unlikely to separate classes reliably.
+**What we see:** Compared with non-deforested pixels, deforested pixels tend to exhibit higher **magnitude** and **rate of change**, as well as higher **DSNR** values (signal-to-noise proxy). The boxplots show clear upward shifts in central tendency and dispersion for these variables in the deforested class, indicating stronger and more abrupt spectral responses. 
 
-— *Class comparison (ndeforested vs non-deforested)*
-<img src="outputs/figures/areas_deforestadas_vs_no_deforestadas.png" alt="ClassComparison" width="450">
+— *Magnitude, rate, DSNR & preval distribution in deforested and non-deforeted classes*
+<img src="outputs/figures/areas_deforestadas_boxplot.png" alt="Boxplot" width="900">
+
+However, the **class distributions overlap substantially**, and the scatterplot (Magnitude vs. DSNR) reveals a wide shared region where both classes coexist. This suggests that simple threshold-based rules are unlikely to separate classes reliably.
 
 — *Magnitude vs DSNR (separability + overlap)*
 <img src="outputs/figures/scatterplot_mag_dsnr.png" alt="Scatterplotn" width="450">
+
+In addition, **the dataset is strongly imbalanced** (~93% non-deforested vs. ~7% deforested), which poses an additional challenge for classification. The dominance of the majority class may bias model training and inflate overall accuracy while masking poor detection of deforestation. Therefore, although magnitude, rate and DSNR are informative predictors, robust modelling approaches—ideally incorporating class weighting, resampling strategies, and possibly additional contextual or temporal predictors—are required rather than single-rule classification.
+
+— *Class comparison (deforested vs non-deforested)*
+<img src="outputs/figures/areas_deforestadas_vs_no_deforestadas.png" alt="ClassComparison" width="450">
+
 
 **Why it matters:** These features are informative, but you’ll need robust modelling (or additional predictors) rather than single-rule classification.
 
