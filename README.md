@@ -112,29 +112,22 @@ In addition, **the dataset is strongly imbalanced** (~93% non-deforested vs. ~7%
 ---
 
 ### 4) Some predictors are correlated — multicollinearity needs to be managed
-**What we see:** Several LandTrendr-derived metrics are correlated (e.g., magnitude, rate, prevalence-related measures). This affects interpretability and can inflate variance in some models.
+**What we see:** The correlation matrix indicates strong linear relationships among several LandTrendr-derived metrics, particularly magnitude, rate of change and DSNR (r ≈ 0.86–0.93). These high correlations suggest that these variables capture closely related aspects of disturbance intensity rather than independent dimensions of change. While this redundancy may not severely affect predictive performance in non-parametric models, it can inflate coefficient variance and reduce interpretability in regression-based approaches. 
 
  — *Correlation matrix*
  <img src="outputs/figures/matriz_correlacion.png" alt="Correlation" width="450">
 
-— *Example bivariate relationship*
- <img src="outputs/figures/scatterplot_mag_preval.png" alt="Scatterplot" width="450">
-
-**Why it matters:** Feature selection, regularisation, or dimensionality reduction can improve stability and interpretability.
+**Why it matters:** Feature selection, regularisation or dimensionality reduction techniques should be considered to improve model stability and ensure clearer attribution of predictive effects.
 
 ---
 
 ### 5) Practical implication: improvements should focus on transformations + feature engineering + additional context
-**What we see:** Given overlap and dispersion, improvements are less about “more modelling” and more about making the signal cleaner and more separable:
-- transformations (e.g., log transforms where appropriate)
-- robust outlier handling
-- combining multiple indices / contextual layers
-- validating the reference mask quality and boundary effects
+**What we see:** The magnitude distributions demonstrate incomplete class separability: although deforested pixels show a clear shift toward higher values, substantial overlap persists across the central value range. This indicates that separability is statistical rather than threshold-based, with most observations concentrated in the ambiguous overlap region rather than in the extreme tails. 
 
 — *shows incomplete separability*
  <img src="outputs/figures/mag_histogram.png" alt="Separability" width="450">
 
-**Why it matters:** This frames your work as monitoring-driven and iteration-ready (a strong consulting / PM narrative).
+**Why it matters:** Performance improvements are unlikely to arise solely from increasing model complexity. Instead, emphasis should be placed on distribution-aware transformations, robust outlier handling, feature engineering that captures disturbance dynamics more explicitly, and incorporation of spatial or contextual predictors. Additionally, careful validation of the reference mask and mitigation of boundary effects may reduce artificial overlap and improve signal clarity.
 
 ---
 
