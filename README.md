@@ -12,11 +12,13 @@ It focuses on:
 
 ## Context (why this matters)
 
-Deforestation is a major driver of biodiversity loss and greenhouse-gas emissions. This type of automated disturbance detection supports MRV (Measurement, Reporting and Verification) systems and scalable forest governance monitoring.
+Deforestation is a major driver of biodiversity loss and greenhouse-gas emissions. LandTrendr supports automated forest monitoring. This type of automated disturbance detection supports MRV (Measurement, Reporting and Verification) systems and scalable forest governance monitoring. 
 
 <img src="https://github.com/user-attachments/assets/318088e9-d345-449c-9b17-3b6d20103cee" width="450">
 
-Peru contains a significant share of the Amazon forest, and **Ucayali** is among the regions most affected by forest loss. In this case study, the analysis covers **2001–2021** and supports the broader goal of building monitoring pipelines for conservation, MRV, and early-warning systems.
+Peru contains a significant share of the Amazon forest, and **Ucayali** is among the regions most affected by forest loss. Over 65% of Ucayali's forest, nearly 100,000 hectares, was lost between 2001-2021, reflecting Amazon-wide deforestation trends driven by agriculture and livestock.
+
+In this case study, the analysis covers **2001–2021** and supports the broader goal of building monitoring pipelines for conservation, MRV, and early-warning systems.
 
 ---
 
@@ -33,7 +35,7 @@ Peru contains a significant share of the Amazon forest, and **Ucayali** is among
 ## Data sources
 
 ### 1) Spectral change metrics (LandTrendr)
-LandTrendr fits a piecewise linear model to Landsat time-series, capturing abrupt disturbances and gradual trends while reducing noise (e.g., cloud contamination, sensor artefacts).
+LandTrendr fits a piecewise linear model to Landsat time-series, capturing abrupt disturbances and gradual trends while reducing noise (e.g., cloud contamination, sensor artefacts). LandTrendr uses Landsat data to monitor vegetation and analyse deforestation events through spectral metrics like magnitude, rate, and year of change.
 
 <img src="assets/img/Figura3_ModConceptual_LandTrend.png" alt="Conceptual Model" width="450">
 
@@ -203,4 +205,3 @@ deforestation-monitoring-insights/
     └── utils/                    # helper functions (funciones.py, etc.)
 
 The project is intentionally structured to separate exploratory analysis (notebooks) from reusable utilities (src/utils), facilitating scalability.
-
