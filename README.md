@@ -101,18 +101,13 @@ In addition, **the dataset is strongly imbalanced** (~93% non-deforested vs. ~7%
 ---
 
 ### 3) Dispersion and outliers are a key challenge for classification and model stability
-**What we see:** Feature distributions show wide dispersion and outliers in both classes. This can reflect mixed pixels (fragmentation), heterogeneous land cover, residual noise, or reference label uncertainty.
+**What we see:** Feature distributions exhibit strong dispersion and right-skewness in both classes, with heavy tails particularly evident for magnitude, rate of change and DSNR. While extreme values are more frequent in the deforested class, substantial variability is also present in non-deforested pixels. This pattern likely reflects mixed pixels in fragmented landscapes, heterogeneous baseline conditions, residual time-series noise and potential reference label uncertainty.
 
 — *Distribution of key variables*
-<img src="outputs/figures/variables_distribucion.png" alt="Distribution" width="450">
+<img src="outputs/figures/variables_distribucion.png" alt="Distribution" width="600">
 
-— *Boxplots highlighting spread and outliers*
-<img src="outputs/figures/areas_deforestadas_boxplot.png" alt="Boxplots" width="450">
 
-— *Duration-related behaviour*
-<img src="outputs/figures/areas_deforestadas_dur.png" alt="Duration" width="450">
-
-**Why it matters:** Outliers and heavy tails can dominate model learning and reduce generalisation—transformations and robust statistics become important.
+**Why it matters:** Such heavy-tailed behaviour poses challenges for classification and model stability. Extreme observations can disproportionately influence decision boundaries and reduce generalisation performance, particularly for linear or parametric models. Therefore, distribution-aware preprocessing (e.g., logarithmic transformations, robust scaling, or tail control strategies) and robust modelling approaches become essential to prevent overfitting to rare but high-magnitude events.
 
 ---
 
@@ -135,9 +130,6 @@ In addition, **the dataset is strongly imbalanced** (~93% non-deforested vs. ~7%
 - robust outlier handling
 - combining multiple indices / contextual layers
 - validating the reference mask quality and boundary effects
-
-— *shows dispersion/overlap*
- <img src="outputs/figures/variables_distribucion.png" alt="Dispersion" width="450">
 
 — *shows incomplete separability*
  <img src="outputs/figures/mag_histogram.png" alt="Separability" width="450">
