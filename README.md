@@ -204,4 +204,5 @@ deforestation-monitoring-insights/
     ├── data/                     # local data (mostly ignored by git)
     └── utils/                    # helper functions (funciones.py, etc.)
 
-The project is intentionally structured to separate exploratory analysis (notebooks) from reusable utilities (src/utils), facilitating scalability.
+
+
