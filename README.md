@@ -132,7 +132,7 @@ A boolean reference mask is derived from **Hansen Global Forest Change (GFC v1.1
  <img src="outputs/figures/variables_distribucion.png" alt="Dispersion" width="450">
 
 — *shows incomplete separability*
-![Dispersion](outputs/figures/areas_deforestadas_vs_no_deforestadas.png)
+ <img src="outputs/figures/mag_histogram.png" alt="Separability" width="450">
 
 **Why it matters:** This frames your work as monitoring-driven and iteration-ready (a strong consulting / PM narrative).
 
