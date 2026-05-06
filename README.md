@@ -186,6 +186,38 @@ The `.gitignore` is configured to:
 
 ---
 
+## Related project: operational implementation in Google Earth Engine
+
+This exploratory analysis is connected to a broader project on **deforestation detection in the Peruvian Amazon using satellite time-series analysis**, focused on the comparison of **LandTrendr** and **CCDC** in Google Earth Engine.
+
+The project implements a complete cloud-based workflow in **Google Earth Engine (GEE)** to detect and characterise deforestation events in Ucayali, Peru, using Landsat time series. It compares two regions of interest with contrasting deforestation patterns, allowing the analysis of how class imbalance, spectral noise and disturbance intensity affect model performance.
+
+The GEE implementation includes:
+- preprocessing of Landsat 5, 7 and 8 surface reflectance imagery
+- cloud, cloud-shadow and water masking
+- radiometric harmonisation across Landsat sensors
+- computation of spectral indices sensitive to forest loss: **NBR, NDMI and TCW**
+- LandTrendr temporal segmentation using annual medoid composites
+- CCDC continuous change detection using multiband harmonic modelling
+- automated calibration of segmentation parameters and magnitude thresholds
+- spatial filtering to reduce salt-and-pepper noise
+- accuracy assessment using national and global reference datasets
+- post-deforestation land-use analysis using annual land-cover products
+
+The project processed more than **2,000 Landsat scenes** for the period **1984–2022**, while deforestation detection and assessment focused on **2001–2021**. Around **400 parameter configurations** were calibrated, combining spectral indices, algorithm settings, magnitude thresholds and spatial filters.
+
+The operational GEE codes developed for the project are available here:
+
+- ROI 1 — LandTrendr: https://code.earthengine.google.com/62d0f44650f01264520efdaaae930959
+- ROI 1 — CCDC: https://code.earthengine.google.com/2ba9e3ca4cc4c757126201ab168fe784
+- ROI 2 — LandTrendr: https://code.earthengine.google.com/49b6f225409fc3810d2e54f223bb37df
+- ROI 2 — CCDC: https://code.earthengine.google.com/96f30a3d26d1f3d9fcda6b8b7b8e238a
+
+Related repository:
+- Forest disturbance monitoring in GEE: https://github.com/mariarisco-labs/forest-disturbance-monitoring-gee
+
+---
+
 ## Repository structure
 
 ```text
